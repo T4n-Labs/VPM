@@ -2,6 +2,7 @@
 Void Package Manager - Wrapper XBPS
 
 ## Structure Project
+```
 vpm/
 ├── vpm            # entrypoint
 ├── lib/
@@ -14,6 +15,7 @@ vpm/
 │   ├── update.sh
 │   └── upgrade.sh
 └── man.md
+```
 
 - Dokumentasi : [man.md](./man.md)
 
