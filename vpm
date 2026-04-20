@@ -6,31 +6,31 @@ VPM_DIR="${VPM_DIR:-/usr/lib/vpm}"
 . "$VPM_DIR/lib/core.sh"
 . "$VPM_DIR/lib/ui.sh"
 
-cmd="${1:-help}"
+cmd="${1:-}"
 shift || true
 
 usage(){
 cat <<EOH
-USAGE: vpm [OPTIONS] [ARGS]
+Usage: vpm [OPTIONS] [ARGS]
 
 OPTIONS
-  i, install   Install Package
-  r, remove    Remove Package
-  s, search    Search Package
-  u, update    Sync Repo
-  ug, upgrade  Upgrade System
+  -i, --install   Install Package
+  -r, --remove    Remove Package
+  -s, --search    Search Package
+  -u, --update    Sync Repo
+  -ug, --upgrade  Upgrade System
 EOH
 }
 
 case "$cmd" in
-  i|install)   exec "$VPM_DIR/commands/install.sh" "$@" ;;
-  r|remove)    exec "$VPM_DIR/commands/remove.sh" "$@" ;;
-  s|search)    exec "$VPM_DIR/commands/search.sh" "$@" ;;
-  u|update)    exec "$VPM_DIR/commands/update.sh" "$@" ;;
-  ug|upgrade)  exec "$VPM_DIR/commands/upgrade.sh" "$@" ;;
-  h|help)      usage ;;
+  -i|--install)   exec "$VPM_DIR/commands/install.sh" "$@" ;;
+  -r|--remove)    exec "$VPM_DIR/commands/remove.sh" "$@" ;;
+  -s|--search)    exec "$VPM_DIR/commands/search.sh" "$@" ;;
+  -u|--update)    exec "$VPM_DIR/commands/update.sh" "$@" ;;
+  -ug|--upgrade)  exec "$VPM_DIR/commands/upgrade.sh" "$@" ;;
+  -h|--help)      usage ;;
   *)
-    log_err "Unknown Command: $cmd"
+    log_err "Unknown Command: vpm -h OR vpm --help"
     exit 1
   ;;
 esac
