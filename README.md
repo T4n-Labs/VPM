@@ -14,6 +14,7 @@ vpm/
 │   ├── search.sh
 │   ├── update.sh
 │   └── upgrade.sh
+├── install        # install to system
 └── man.md
 ```
 
