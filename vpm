@@ -11,21 +11,24 @@ shift || true
 
 usage(){
 cat <<EOH
-USAGE: vpm <Command> [args]
-i, install   Install Package
-r, remove    Remove Package
-s, search    Search Package
-u, update    Sync Repo
-ug, upgrade  Upgrade System
+USAGE: vpm [OPTIONS] [ARGS]
+
+OPTIONS
+  i, install   Install Package
+  r, remove    Remove Package
+  s, search    Search Package
+  u, update    Sync Repo
+  ug, upgrade  Upgrade System
 EOH
 }
 
 case "$cmd" in
-  i|install)   exec "VPM_DIR/commands/install.sh" "$@" ;;
-  r|remove)    exec
-  s|search)    exec
-  u|update)    exec
-  ug|upgrade)  exec
+  i|install)   exec "$VPM_DIR/commands/install.sh" "$@" ;;
+  r|remove)    exec "$VPM_DIR/commands/remove.sh" "$@" ;;
+  s|search)    exec "$VPM_DIR/commands/search.sh" "$@" ;;
+  u|update)    exec "$VPM_DIR/commands/update.sh" "$@" ;;
+  ug|upgrade)  exec "$VPM_DIR/commands/upgrade.sh" "$@" ;;
+  h|help)      usage ;;
   *)
     log_err "Unknown Command: $cmd"
     exit 1

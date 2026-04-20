@@ -1,7 +1,7 @@
 #!/bin/bash
 
 require_root() {
-  if [ "$(id -u" -ne 0 ]; then
+  if [ "$(id -u)" -ne 0 ]; then
     exec sudo "$0" "$@"
   fi
 }
