@@ -21,6 +21,4 @@ do_install() {
     for cmd in install remove search update upgrade; do
         vinstall commands/${cmd}.sh 755 usr/lib/vpm/commands
     done
-
-    vinstall config 644 etc/vpm.conf
 }
